@@ -173,7 +173,7 @@ movieGrid.addEventListener('click', (e) => {
     if (e.target.classList.contains('movie') || e.target.closest('.movie')) {
         const movieDiv = e.target.classList.contains('movie') ? e.target : e.target.closest('.movie');
         const movieID = movieDiv.getAttribute('movieID'); 
-        window.location.href = `/moviePage/movie-detail.html?id=${movieID}`;
+        window.location.href = `moviePage/movie-detail.html?id=${movieID}`;
     }
 });
 
