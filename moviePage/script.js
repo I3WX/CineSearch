@@ -83,7 +83,7 @@ async function recommendationsMovie(movieId){
 document.addEventListener("DOMContentLoaded", recommendationsMovie(movieId) )
 
 async function loadRecommendationsMovie(data){
-    let movieData = data.slice(0,5)
+    let movieData = data.slice(0,10)
     movieList.innerHTML=" "
     movieData.forEach(movie => {
         let title = movie.title
