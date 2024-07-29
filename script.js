@@ -93,19 +93,19 @@ function addMovie2Page(data) {
         
         // Check if movie is in the watchlist and update heart image accordingly
         if (Watchlist.includes(movie.id)) {
-            heartImg.setAttribute('src', 'image/redHeart.svg');
+            heartImg.setAttribute('src', 'Image/redHeart.svg');
         } else {
-            heartImg.setAttribute('src', 'image/blackHeart.svg');
+            heartImg.setAttribute('src', 'Image/blackHeart.svg');
         }
         
         heartImg.addEventListener('click', (e) => {
             e.stopPropagation();
             if (Watchlist.includes(movie.id)) {
                 Watchlist = Watchlist.filter(id => id !== movie.id);
-                heartImg.setAttribute('src', 'image/blackHeart.svg');
+                heartImg.setAttribute('src', 'Image/blackHeart.svg');
             } else {
                 Watchlist.push(movie.id);
-                heartImg.setAttribute('src', 'image/redHeart.svg');
+                heartImg.setAttribute('src', 'Image/redHeart.svg');
             }
             localStorage.setItem("MovieWatchList", JSON.stringify(Watchlist));
         });
@@ -173,7 +173,7 @@ movieGrid.addEventListener('click', (e) => {
     if (e.target.classList.contains('movie') || e.target.closest('.movie')) {
         const movieDiv = e.target.classList.contains('movie') ? e.target : e.target.closest('.movie');
         const movieID = movieDiv.getAttribute('movieID'); 
-        window.location.href = `/moviePage/movie-detail.html?id=${movieID}`;
+        window.location.href = `moviePage/movie-detail.html?id=${movieID}`;
     }
 });
 
@@ -223,19 +223,19 @@ WatchListBtn.addEventListener("click", async (e) => {
                 heartImg.setAttribute('class', 'heart');
                 
                 if (Watchlist.includes(movieData.id)) {
-                    heartImg.setAttribute('src', 'image/redHeart.svg');
+                    heartImg.setAttribute('src', 'Image/redHeart.svg');
                 } else {
-                    heartImg.setAttribute('src', 'image/blackHeart.svg');
+                    heartImg.setAttribute('src', 'Image/blackHeart.svg');
                 }
                 
                 heartImg.addEventListener('click', (e) => {
                     e.stopPropagation();
                     if (Watchlist.includes(movieData.id)) {
                         Watchlist = Watchlist.filter(id => id !== movieData.id);
-                        heartImg.setAttribute('src', 'image/blackHeart.svg');
+                        heartImg.setAttribute('src', 'Image/blackHeart.svg');
                     } else {
                         Watchlist.push(movieData.id);
-                        heartImg.setAttribute('src', 'image/redHeart.svg');
+                        heartImg.setAttribute('src', 'Image/redHeart.svg');
                     }
                     localStorage.setItem("MovieWatchList", JSON.stringify(Watchlist));
                 });
