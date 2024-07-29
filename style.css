@@ -1,18 +1,35 @@
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #0056b3;
+    --background-gradient-start: #d0e5f3;
+    --background-gradient-end: #a0c4f4;
+    --text-color: #333333;
+    --background-color: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #555555;
+    --disabled-gray: #cccccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-shadow-color: rgba(0, 0, 0, 0.2);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(to right, #2c3e50, #4a5568); /* Dark gray gradient */
-    color: #e0e0e0; /* Light gray text for contrast */
+    background: linear-gradient(to right, var(--background-gradient-start), var(--background-gradient-end));
+    color: var(--text-color);
 }
 
 .header {
-    background-color: #1e3c72; /* Dark blue */
+    background-color: var(--primary-color);
     color: white;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header h1 {
@@ -24,59 +41,70 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: #333333; /* Dark gray */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .search-bar input {
     width: 50%;
     padding: 15px;
     font-size: 18px;
-    border: 2px solid #1e3c72; /* Dark blue border */
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
-    transition: border-color 0.3s;
-    background-color: #e0e0e0; /* Light gray background */
-    color: #333333; /* Dark gray text */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .search-bar input:focus {
-    border-color: #4a5568; /* Slightly lighter dark gray */
+    border-color: var(--secondary-color);
     outline: none;
-}
-.search-bar button{
-    padding: 15px;
-    font-size: 18px;
-    border: 2px solid #1e3c72; /* Dark blue border */
-    border-radius: 5px;
-    transition: border-color 0.3s;
-    background-color: #1e3c72; /* Light gray background */
-    color: #333333;
-    cursor: pointer;
+    box-shadow: 0 4px 8px var(--hover-shadow-color);
 }
 
-.genres {
+.search-bar button {
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.search-bar button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px var(--hover-shadow-color);
+}
+
+.dropdown {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-around;
     padding: 20px;
-    background-color: #333333; /* Dark gray */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-gray);
+    box-shadow: 0 4px 8px var(--shadow-color);
     margin-top: 20px;
 }
 
-.genres .genre {
-    background-color: #1e3c72; /* Dark blue */
-    color: white;
-    margin: 5px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+.genreSelect, .Movieselect, .TVselect , #WatchList {
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
-.genres .genre:hover {
-    background-color: #4a5568; /* Slightly lighter dark gray */
-    transform: scale(1.05);
+.genreSelect:focus, .Movieselect:focus, .TVselect:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    background-color: var(--light-gray);
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .movie-grid {
@@ -84,35 +112,88 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
-    background-color: #4a5568; /* Lighter dark gray */
+    background-color: var(--background-color);
 }
 
 .movie {
-    background-color: #2c3e50; /* Dark gray */
+    background-color: var(--light-gray);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
 }
 
+
+.movie img.heart {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    width: 24px;
+    height: 24px; 
+    z-index: 1;
+}
+
+
 .movie:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px var(--hover-shadow-color);
 }
 
 .movie h3 {
     margin-top: 0;
-    color: white; /* White text */
+    color: var(--primary-color);
 }
 
 .movie p {
-    color: #bbbbbb; /* Light gray for secondary text */
-}
-.movie img {
-    width: 100%;
-    height: 300px; /* Adjust the height as needed */
-    object-fit: cover;
-    border-radius: 10px; /* Optional: To match the border radius of the movie div */
+    color: var(--dark-gray);
 }
 
+.movie img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+.page-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    margin: 0 10px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.page-btn:disabled {
+    background-color: var(--disabled-gray);
+    border-color: var(--disabled-gray);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px var(--hover-shadow-color);
+}
+
+.page-info {
+    font-size: 18px;
+    margin: 0 20px;
+    color: var(--text-color);
+}
