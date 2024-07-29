@@ -93,9 +93,9 @@ function addMovie2Page(data) {
         
         // Check if movie is in the watchlist and update heart image accordingly
         if (Watchlist.includes(movie.id)) {
-            heartImg.setAttribute('src', 'image/redHeart.svg');
+            heartImg.setAttribute('src', 'Image/redHeart.svg');
         } else {
-            heartImg.setAttribute('src', 'image/blackHeart.svg');
+            heartImg.setAttribute('src', 'Image/blackHeart.svg');
         }
         
         heartImg.addEventListener('click', (e) => {
