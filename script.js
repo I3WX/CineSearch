@@ -102,10 +102,10 @@ function addMovie2Page(data) {
             e.stopPropagation();
             if (Watchlist.includes(movie.id)) {
                 Watchlist = Watchlist.filter(id => id !== movie.id);
-                heartImg.setAttribute('src', 'image/blackHeart.svg');
+                heartImg.setAttribute('src', 'Image/blackHeart.svg');
             } else {
                 Watchlist.push(movie.id);
-                heartImg.setAttribute('src', 'image/redHeart.svg');
+                heartImg.setAttribute('src', 'Image/redHeart.svg');
             }
             localStorage.setItem("MovieWatchList", JSON.stringify(Watchlist));
         });
@@ -224,19 +224,19 @@ WatchListBtn.addEventListener("click", async (e) => {
                 
                 // Check if movie is in the watchlist and update heart image accordingly
                 if (Watchlist.includes(movieData.id)) {
-                    heartImg.setAttribute('src', 'image/redHeart.svg');
+                    heartImg.setAttribute('src', 'Image/redHeart.svg');
                 } else {
-                    heartImg.setAttribute('src', 'image/blackHeart.svg');
+                    heartImg.setAttribute('src', 'Image/blackHeart.svg');
                 }
                 
                 heartImg.addEventListener('click', (e) => {
                     e.stopPropagation();
                     if (Watchlist.includes(movieData.id)) {
                         Watchlist = Watchlist.filter(id => id !== movieData.id);
-                        heartImg.setAttribute('src', 'image/blackHeart.svg');
+                        heartImg.setAttribute('src', 'Image/blackHeart.svg');
                     } else {
                         Watchlist.push(movieData.id);
-                        heartImg.setAttribute('src', 'image/redHeart.svg');
+                        heartImg.setAttribute('src', 'Image/redHeart.svg');
                     }
                     localStorage.setItem("MovieWatchList", JSON.stringify(Watchlist));
                 });
