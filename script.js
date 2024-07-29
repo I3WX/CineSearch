@@ -222,7 +222,6 @@ WatchListBtn.addEventListener("click", async (e) => {
                 img.setAttribute('src', poster);
                 heartImg.setAttribute('class', 'heart');
                 
-                // Check if movie is in the watchlist and update heart image accordingly
                 if (Watchlist.includes(movieData.id)) {
                     heartImg.setAttribute('src', 'image/redHeart.svg');
                 } else {
