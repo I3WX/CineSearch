@@ -56,6 +56,7 @@ Movieselect.addEventListener('change', async () => {
         addMovie2Page(data.results);
         currentPage = 1;
         pageInfo.innerHTML = `Page ${currentPage}`;
+        consol.log("Movie Selected")
     }
 });
 
